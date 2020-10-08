@@ -3,12 +3,18 @@
 # Comment
 FROM ubuntu:latest
 #RUN echo 'we are running some # of cool things'
+
 USER root
 
-RUN echo "\
-     hello\
-     world\
-     "
+RUN apt-get update
+
+RUN apt-get install -y build-essential
+
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN unzip awscliv2.zip
+RUN ./aws/install
+
+USER root 
 # ADD
 # COPY
 # ENV
